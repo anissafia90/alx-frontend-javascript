@@ -1,0 +1,13 @@
+import getResponseFromAPI from "./0-promise.js";
+
+const response = getResponseFromAPI();
+console.log(response instanceof Promise); // This should print "true"
+
+// Handling the promise to avoid unhandled rejection warnings
+response
+  .then(() => {
+    console.log('API response received successfully.');
+  })
+  .catch((error) => {
+    console.error('Failed to fetch API:', error);
+  });
